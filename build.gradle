@@ -1,0 +1,26 @@
+plugins {
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.1.0'
+}
+
+repositories {
+    mavenCentral()
+}
+
+javafx {
+    version = '21.0.12'
+    // javafx.fxml is needed for the FXML screens in the two new exercises
+    modules = ['javafx.controls', 'javafx.fxml']
+}
+
+// Keep FXML/CSS files in the same folder as the compiled classes.
+// A modular project (module-info.java) cannot find them otherwise.
+sourceSets.main.output.resourcesDir = sourceSets.main.java.destinationDirectory.get().asFile
+
+application {
+    mainModule = 'com.example.hellofx'
+    // Default stays your first lab. To run another app use -Papp=<class>, for example:
+    //   gradlew run -Papp=studentregistration.MainApp
+    //   gradlew run -Papp=customermanager.MainApp
+    mainClass.set(providers.gradleProperty('app').orElse('com.example.hellofx.Main'))
+}
