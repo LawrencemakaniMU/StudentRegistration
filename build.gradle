@@ -18,9 +18,9 @@ javafx {
 sourceSets.main.output.resourcesDir = sourceSets.main.java.destinationDirectory.get().asFile
 
 application {
-    mainModule = 'com.example.hellofx'
+    mainModule = 'studentregistration'
     // Default stays your first lab. To run another app use -Papp=<class>, for example:
     //   gradlew run -Papp=studentregistration.MainApp
     //   gradlew run -Papp=customermanager.MainApp
-    mainClass.set(providers.gradleProperty('app').orElse('com.example.hellofx.Main'))
+    mainClass.set(providers.gradleProperty('app').orElse('studentregistration.Main'))
 }
